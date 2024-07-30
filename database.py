@@ -16,9 +16,9 @@ battles_collection = db['battles']
 
 # Função para buscar dados de jogadores
 def fetch_player_data(player_tag):
-    url = 'https://api.clashroyale.com/v1/players/%23{player_tag}'
+    url = f'https://api.clashroyale.com/v1/players/%23{player_tag}'
     headers = {
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBhMmZmMDg5LTUyMmItNGE1Mi1iYzFhLTNkZTE2ZjIzYzYzMCIsImlhdCI6MTcyMjE0MDEwOCwic3ViIjoiZGV2ZWxvcGVyLzEwY2YyNWNkLWQ0NzgtY2VmYy0wMGE0LTllODA0MTU0NWYxZSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxODYuMjE2LjIxNi43MSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.gGVx-VXla497Q8NXNdY8bm0f5mTasSopKUjwqCCK-skpje-oQTjx9QgKjKDRZrQau4XSrWpxaK9BoO7_p0MLew'
+        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImM2ZGY0ZjliLTBmYjctNGUzNC04NGNlLWZkMGExNzdjMWUyMyIsImlhdCI6MTcyMjM1NjQ5MSwic3ViIjoiZGV2ZWxvcGVyLzEwY2YyNWNkLWQ0NzgtY2VmYy0wMGE0LTllODA0MTU0NWYxZSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzcuMjIzLjIyLjc3Il0sInR5cGUiOiJjbGllbnQifV19.S-014w0so-60WC1i96HK7B-5Bffqhbg5J2aKbcsKKqKtJ9loDH17H3gFb3mGxLOlV0ZLSFPLkOTZpRJcDrcdUg'
     }  
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
@@ -31,7 +31,7 @@ def fetch_player_data(player_tag):
 def fetch_battle_data(player_tag):
     url = f'https://api.clashroyale.com/v1/players/%23{player_tag}/battlelog'
     headers = {
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBhMmZmMDg5LTUyMmItNGE1Mi1iYzFhLTNkZTE2ZjIzYzYzMCIsImlhdCI6MTcyMjE0MDEwOCwic3ViIjoiZGV2ZWxvcGVyLzEwY2YyNWNkLWQ0NzgtY2VmYy0wMGE0LTllODA0MTU0NWYxZSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxODYuMjE2LjIxNi43MSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.gGVx-VXla497Q8NXNdY8bm0f5mTasSopKUjwqCCK-skpje-oQTjx9QgKjKDRZrQau4XSrWpxaK9BoO7_p0MLew'          
+        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImM2ZGY0ZjliLTBmYjctNGUzNC04NGNlLWZkMGExNzdjMWUyMyIsImlhdCI6MTcyMjM1NjQ5MSwic3ViIjoiZGV2ZWxvcGVyLzEwY2YyNWNkLWQ0NzgtY2VmYy0wMGE0LTllODA0MTU0NWYxZSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzcuMjIzLjIyLjc3Il0sInR5cGUiOiJjbGllbnQifV19.S-014w0so-60WC1i96HK7B-5Bffqhbg5J2aKbcsKKqKtJ9loDH17H3gFb3mGxLOlV0ZLSFPLkOTZpRJcDrcdUg'          
     }
     response = requests.get(url, headers=headers)
     if response.status_code == 200:

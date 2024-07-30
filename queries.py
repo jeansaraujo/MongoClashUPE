@@ -4,7 +4,7 @@ Created on Sun Jul 28 09:09:48 2024
 @authors: Flavio, David e Jean
 """
 
-from MongoClashUPE._database import battles_collection
+from database import battles_collection
 from datetime import datetime
 import pytz
 

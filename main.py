@@ -4,7 +4,7 @@ Created on Fri Jul 26 12:47:29 2024
 @authors: Flavio, David e Jean
 """
 
-from MongoClashUPE._database import insert_data
+from database import insert_data
 from queries import (
     list_existing_cards, get_date_range_all_battles, get_date_range_from_db,
     victory_defeat_percentage, decks_with_high_win_rate, defeats_with_combo,
@@ -13,8 +13,8 @@ from queries import (
 )
 
 # Lista de tags de jogadores públicos
-player_tags = ['9JPL980Y2','RPURG9GR','2GYRQJRR8']
-#player_tags = ['2P0LYQ', '82RLCVCC','929URQCL8','929URQCL8', 'RC2JGVVG', '9JPL980Y2', 'YU8R0VPP', 'RPURG9GR', '2GYRQJRR8']
+player_tags = ['RPURG9GR','2GYRQJRR8']
+#player_tags = ['2P0LYQ', '82RLCVCC','929URQCL8','929URQCL8', 'RC2JGVVG', '9JPL980Y2', 'YU8R0VPP', 'RPURG9GR', '2GYRQJRR8']'9JPL980Y2',
 
 # TESTAR
 #player_tags = ['2Q9JG29RL','2LJ0ULYCC','Y9R22RQ2']
