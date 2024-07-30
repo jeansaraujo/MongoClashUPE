@@ -7,17 +7,9 @@ Authors: Flavio, David e Jean
 import os
 import requests
 from pymongo import MongoClient
-from dotenv import load_dotenv
-
-# Carregar variáveis de ambiente do arquivo .env
-load_dotenv()
-
-# Obter URI de conexão do MongoDB Atlas e Bearer token das variáveis de ambiente
-MONGO_URI = os.getenv('MONGO_URI')
-BEARER_TOKEN = os.getenv('BEARER_TOKEN')
 
 # Conexão com o MongoDB Atlas
-client = MongoClient(MONGO_URI)
+client = MongoClient('mongodb+srv://user:ppgec@ppgecbd.wyp9rmt.mongodb.net')
 db = client['clash_royale']
 players_collection = db['players']
 battles_collection = db['battles']
@@ -26,8 +18,7 @@ battles_collection = db['battles']
 def fetch_player_data(player_tag):
     url = 'https://api.clashroyale.com/v1/players/%23{player_tag}'
     headers = {
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBhMmZmMDg5LTUyMmItNGE1Mi1iYzFhLTNkZTE2ZjIzYzYzMCIsImlhdCI6MTcyMjE0MDEwOCwic3ViIjoiZGV2ZWxvcGVyLzEwY2YyNWNkLWQ0NzgtY2VmYy0wMGE0LTllODA0MTU0NWYxZSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxODYuMjE2LjIxNi43MSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.gGVx-VXla497Q8NXNdY8bm0f5mTasSopKUjwqCCK-skpje-oQTjx9QgKjKDRZrQau4XSrWpxaK9BoO7_p0MLew'          
-        
+        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBhMmZmMDg5LTUyMmItNGE1Mi1iYzFhLTNkZTE2ZjIzYzYzMCIsImlhdCI6MTcyMjE0MDEwOCwic3ViIjoiZGV2ZWxvcGVyLzEwY2YyNWNkLWQ0NzgtY2VmYy0wMGE0LTllODA0MTU0NWYxZSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxODYuMjE2LjIxNi43MSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.gGVx-VXla497Q8NXNdY8bm0f5mTasSopKUjwqCCK-skpje-oQTjx9QgKjKDRZrQau4XSrWpxaK9BoO7_p0MLew'
     }  
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
